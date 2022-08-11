@@ -4,6 +4,7 @@ export const Wrapper = styled.div`
   width: 100%;
   height: 80px;
   position: fixed;
+  top: 0px;
   background-color: ${props =>
     props.visiblity ? 'rgba(0,0,0,0.7)' : 'transparent'};
   backdrop-filter: ${props => props.visiblity && 'blur(30px)'};

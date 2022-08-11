@@ -6,6 +6,9 @@ const COLOR = {
   'GRAY-300': '#CCCCCC',
   'GRAY-500': '#AAAAAA',
   BLACK: '#333333',
+  YELLOW: '#FFC300',
+  MINT: '#DAF7A6',
+  BLUE: '#33ACFF',
 };
 
 export default COLOR;

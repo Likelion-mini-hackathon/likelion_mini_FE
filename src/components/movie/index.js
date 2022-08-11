@@ -1,35 +1,31 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
 import Detail from './detail';
-import Loading from '../../components/loading';
-import { useParams } from 'react-router-dom';
+import detailAPI from './../../apis/detailAPI';
+import rawdata from './rawdata';
 
 function DetailPage() {
   const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(false);
   const { id } = useParams();
-  console.log(typeof id);
+  const new_data = { ...rawdata, split_genre: rawdata.genre.split(',') };
 
-  useEffect(() => {
-    async function getDetailData() {
-      try {
-        const { data: result } = await axios.get(
-          `http://127.0.0.1:8000/movie/${id}`
-        );
-        setData(result);
-        console.log(data);
-        setLoading(false);
-      } catch (err) {
-        console.log(err);
-      }
-    }
-    setLoading(true);
-    getDetailData();
-  }, []);
+  // useEffect(() => {
+  //   async function getDetailData() {
+  //     try {
+  //       const data = await detailAPI.getDetail(id);
+  //       const new_data = { ...rawdata, split_genre: rawdata.genre.split(',') };
+  //       setData(new_data);
+  //       console.log(data);
+  //     } catch (err) {
+  //       console.log(err);
+  //     }
+  //   }
+  //   getDetailData();
+  // }, []);
 
-  return <>{loading ? <Loading /> : <Detail data={data} />}</>;
-  // return <>{loading ? <Loading /> : <Detail data={rawdata} />}</>;
+  return <Detail data={new_data} />;
 }
 
 export default DetailPage;

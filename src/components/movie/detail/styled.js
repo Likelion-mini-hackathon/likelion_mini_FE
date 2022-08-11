@@ -1,148 +1,145 @@
 import styled from 'styled-components';
-import back from '../../../assets/img/detailback.jpg';
 import '../../../assets/fonts/fonts.css';
+import COLOR from './../../../constants/color';
 
-export const Wrapper = styled.div``;
-
-export const ConDiv = styled.div`
-  width: 100%;
+export const Container = styled.div`
+  width: 1000px;
   min-width: 512px;
-  height: 100vh;
-  // opacity: 0.4;
   margin: 0 auto;
-  display: flex;
-
-  background-image: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0) 80%,
-      rgba(0, 0, 0, 1)
-    ),
-    url(${back});
-  /* background-image: url(${back}); */
-  background-size: cover;
-`;
-export const MainDiv = styled.div`
-  width: 100%;
-  height: 100vh;
-  // background: rgba(250, 250, 250, 0.3);
-  background: rgba(0, 0, 0, 0.5);
-  margin: 0 auto;
-  margin-top: 30px;
+  margin-top: 80px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   @media screen and (max-width: 512px) {
     width: 100%;
   }
 `;
-export const MainConDiv = styled.div`
-  width: 80%;
-  height: 80%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-export const LeftDiv = styled.div`
-  width: 100%;
-  height: 100%;
-  padding: 40px 0 40px 30px;
-  flex: 0.6;
+export const DetailWrapper = styled.div`
+  height: calc(100vh - 80px);
   display: flex;
   flex-direction: column;
+  align-items: center;
 `;
-export const RightDiv = styled.div`
+export const Header = styled.div`
   width: 100%;
-  height: 100%;
-  flex: 0.4;
   display: flex;
+  margin-bottom: 15px;
 `;
-export const TitleConDiv = styled.div`
-  margin-bottom: 30px;
-  display: flex;
-`;
-export const TitleKorDiv = styled.div`
+export const HeaderKor = styled.div`
   font-family: 'BMHANNAPro', sans-serif;
   font-size: 2rem;
-  font-weight: bold;
   margin-right: 10px;
 `;
-export const TitleEngDiv = styled.div`
-  color: #b3b3b3;
-`;
-export const SpeBoxDiv = styled.div`
-  margin-bottom: 15px;
+export const HeaderEng = styled.div`
+  color: ${COLOR['GRAY-200']};
+  font-size: 1.5rem;
   display: flex;
-  flex-direction: column;
+  align-items: flex-end;
 `;
-export const RatBoxDiv = styled.div`
-  margin-bottom: 30px;
+export const Wrapper = styled.div`
+  width: 100%;
   display: flex;
-  align-items: center;
-`;
-export const RatInboxDiv = styled.div`
-  flex: 0.5;
-`;
-export const SpeConDiv = styled.div`
-  padding: 10px;
-  display: flex;
-`;
-export const SpeTitleDiv = styled.div`
-  width: 90px;
-  color: #b3b3b3;
-  margin-right: 20px;
-`;
-export const SpeContDiv = styled.div`
-  color: white;
-`;
-export const SpeSumDiv = styled.div`
-  width: 520px;
-  text-align: justify;
-  line-height: 1.5;
-`;
-export const Star = styled.div`
-  font-size: 1.8rem;
-  display: flex;
-  align-items: center;
-  path {
-    fill: #ffeaa7;
-  }
-`;
-export const ImgDiv = styled.div`
-  flex: 0.6;
-  display: flex;
-  align-items: center;
 `;
 export const Poster = styled.img`
-  width: 100%;
-  height: 80%;
+  display: block;
+  width: 400px;
+  height: 520px;
+  object-fit: cover;
   src: ${props => props.src};
 `;
-export const StaffConDiv = styled.div`
-  flex: 0.4;
-  padding: 50px 0;
+export const ContentWrapper = styled.div`
+  padding-left: 20px;
   display: flex;
   flex-direction: column;
 `;
-export const StaffItemDiv = styled.div`
-  height: calc(100% / 3);
+export const ContentItem = styled.div`
+  padding: 10px 0px;
   display: flex;
-  flex-direction: column;
+  align-items: center;
 `;
-export const StaffItemImg = styled.div`
-  width: 120px;
-  height: 120px;
-  margin: 0 auto;
-  margin-bottom: 10px;
-  border-radius: 70%;
-  background-image: url(${props => props.url});
+export const ContentTitle = styled.div`
+  width: 100px;
+  height: 30px;
+  color: ${COLOR['GRAY-200']};
+`;
+export const Content = styled.div`
+  width: 100%;
+  height: 30px;
+`;
+export const Summary = styled.div`
+  width: 100%;
+  height: 150px;
+  line-height: 1.3;
+  overflow-y: auto;
+`;
+export const Staff = styled.div`
+  width: 100%;
+  height: 150px;
+  overflow-x: auto;
+  display: flex;
+`;
+export const StaffContent = styled.div`
+  display: none;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+`;
+export const StaffItem = styled.div`
+  width: 100px;
+  height: 100%;
+  margin-right: 10px;
+  &:hover ${StaffContent} {
+    opacity: 1;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.6);
+    top: 0px;
+    left: 0px;
+  }
+`;
+export const StaffImg = styled.div`
+  width: 100%;
+  height: 100%;
+  background-image: url(${props => props.src});
   background-size: cover;
+  position: relative;
 `;
-export const StaffItemName = styled.div`
-  text-align: center;
-  font-size: 1rem;
-  color: #b3b3b3;
-`;
+
+// export const Star = styled.div`
+//   font-size: 1.8rem;
+//   display: flex;
+//   align-items: center;
+//   path {
+//     fill: #ffeaa7;
+//   }
+// `;
+
+// export const StaffConDiv = styled.div`
+//   flex: 0.4;
+//   padding: 50px 0;
+//   display: flex;
+//   flex-direction: column;
+// `;
+// export const StaffItemDiv = styled.div`
+//   height: calc(100% / 3);
+//   display: flex;
+//   flex-direction: column;
+// `;
+// export const StaffItemImg = styled.div`
+//   width: 120px;
+//   height: 120px;
+//   margin: 0 auto;
+//   margin-bottom: 10px;
+//   border-radius: 70%;
+//   background-image: url(${props => props.url});
+//   background-size: cover;
+// `;
+// export const StaffItemName = styled.div`
+//   text-align: center;
+//   font-size: 1rem;
+//   color: #b3b3b3;
+// `;
 
 export const ArrowBtn = styled.div`
   display: flex;
@@ -155,13 +152,9 @@ export const ArrowBtn = styled.div`
   border-radius: 50%;
   font-size: 24px;
   position: sticky;
-  bottom: 3rem;
+  bottom: 1rem;
   box-shadow: rgba(255, 255, 255, 0.35) 0px 5px 15px;
   cursor: pointer;
   /* left: 50%; */
   /* transform: translateX(50%); */
-`;
-
-export const CommentWrapper = styled.div`
-  height: 100vh;
 `;
